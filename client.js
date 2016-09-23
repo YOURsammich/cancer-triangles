@@ -46,13 +46,7 @@ function moreRed(hex) {//Math.floor(Math.random() * 6) + 1
 
 
 function getColor(y, x) {
-    if (x % 2 === 0 ) {
-        return '#00ff00';
-    } else if (y % 2 === 0) {
-        return '#0000ff';
-    } else {
-        return '#ff0000';
-    }
+    return #000000;
 }
 
 function init() {
