@@ -46,7 +46,7 @@ function moreRed(hex) {//Math.floor(Math.random() * 6) + 1
 
 
 function getColor(y, x) {
-    return #000000;
+    return '#000000';
 }
 
 function init() {
