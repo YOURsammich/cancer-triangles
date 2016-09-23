@@ -2,7 +2,7 @@ var canvas = document.getElementById('main');
 var ctx = canvas.getContext('2d');
 
 var settings = {
-    radius : 2,
+    radius : 5,
     draw : false
 }
 
@@ -93,7 +93,7 @@ function drawRadius(Y, X, R, func) {
     var XX,
         YY;
     
-    for (YY = Y - R; YY < Y + Math.round(R / 2); YY++) {
+    for (YY = Y - R; YY < Y + Math.round(R / 5); YY++) {
         for (XX = X - R; XX < X + R; XX++) {
             if (allTriangles[YY] && allTriangles[YY][XX]) {
                 allTriangles[YY][XX] = func(allTriangles[YY][XX]);
