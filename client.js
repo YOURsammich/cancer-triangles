@@ -1,6 +1,11 @@
 var canvas = document.getElementById('main');
 var ctx = canvas.getContext('2d');
 
+var settings = {
+    radius : 2,
+    draw : false
+}
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -21,7 +26,7 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
-function moreRed(hex) {//Math.floor(Math.random() * 6) + 1  
+function randomColor(hex) {//Math.floor(Math.random() * 6) + 1  
     var rgb = hexToRgb(hex),
         randomRed = Math.floor(Math.random() * 50) - 25,
         randomBlue = Math.floor(Math.random() * 50) - 25,
@@ -113,11 +118,21 @@ function drawAllTriangles() {
     
 }
 
+document.body.addEventListener('mousedown', function(e){
+    settings.draw = true;
+});
+
+document.body.addEventListener('mouseup', function(e){
+    settings.draw = false;
+});
+
 document.body.addEventListener('mousemove', function(e){
     var X = Math.round(e.clientX / 5),
         Y = Math.round(e.clientY / 10);
     
-    drawRadius(Y, X, 10, moreRed)
+    if (settings.draw) {
+        drawRadius(Y, X, settings.radius, randomColor)
+    }
 });
 
 init();
